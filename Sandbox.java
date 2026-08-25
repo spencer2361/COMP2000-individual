@@ -1,9 +1,13 @@
 public class Sandbox {
-public static void main(String[] args) {
-    System.out.println("hgcjkbhgv!");
 
-    Frame a = new Frame();
-    System.out.println(a.testFunc());
+    static int WIDTH = 800;
+    static int HEIGHT = 600;
+    static int CELL_SIZE = 4;
+
+    static int COLS = WIDTH / CELL_SIZE;
+    static int ROWS = HEIGHT / CELL_SIZE;
+public static void main(String[] args) {
+    
     }
 }
 
