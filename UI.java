@@ -1,8 +1,8 @@
 import java.awt.*;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*; // keep all of swing? or just what we need, this was easier
 
-public class UI extends JFrame{
+public class UI extends JFrame {
+
     public UI(int width, int height) {
 
         //Frame Creation
@@ -12,14 +12,30 @@ public class UI extends JFrame{
         setLocationRelativeTo(null);
         setVisible(true);
 
-
         //Close Window
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new JPanel();
-        add(panel);
 
-        //Background
-        panel.setBackground(Color.DARK_GRAY);
-    }    
+        //Simulation Area
+        JPanel simPanel = new JPanel();
+        simPanel.setBackground(Color.DARK_GRAY);
+
+        add(simPanel, BorderLayout.CENTER);
+
+
+        //Side Bar
+        JPanel sidePanel = new JPanel();
+        sidePanel.setPreferredSize(new Dimension(150, 0));
+        sidePanel.setBackground(Color.GRAY);
+
+        add(sidePanel, BorderLayout.EAST);
+
+
+        //Bottom Bar
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setPreferredSize(new Dimension(0, 60));
+        bottomPanel.setBackground(Color.GRAY);
+
+        add(bottomPanel, BorderLayout.SOUTH);
+    }
 }
