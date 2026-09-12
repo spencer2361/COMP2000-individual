@@ -12,7 +12,7 @@ public class Sandbox {
     Tester<Elements> tester = new Tester<>();
 
     public Sandbox() {
-        tester.set(new Gas());
+        tester.set(new Sand());
         grid = new Elements[ROWS][COLS];
         grid[20][40] = tester.get();
     }
@@ -54,6 +54,16 @@ public class Sandbox {
 
     public void step() {
         frameCounter++;
+
+        // Remove burnt-out fire (Judah) without instanceof — each element can say it should go
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLS; col++) {
+                Elements e = grid[row][col];
+                if (e != null && e.shouldDisappear()) {
+                    grid[row][col] = null;
+                }
+            }
+        }
 
         for (int row = ROWS - 2; row >= 0; row--) {
             for (int col = 0; col < COLS; col++) {
@@ -110,18 +120,15 @@ public class Sandbox {
             if (col > 0 && grid[row - 1][col - 1] == null) {
                 grid[row - 1][col - 1] = grid[row][col];
                 grid[row][col] = null;
-            }
-            else if (col < COLS - 1 && grid[row - 1][col + 1] == null) {
+            } else if (col < COLS - 1 && grid[row - 1][col + 1] == null) {
                 grid[row - 1][col + 1] = grid[row][col];
                 grid[row][col] = null;
             }
-        }
-        else {
+        } else {
             if (col < COLS - 1 && grid[row - 1][col + 1] == null) {
                 grid[row - 1][col + 1] = grid[row][col];
                 grid[row][col] = null;
-            }
-            else if (col > 0 && grid[row - 1][col - 1] == null) {
+            } else if (col > 0 && grid[row - 1][col - 1] == null) {
                 grid[row - 1][col - 1] = grid[row][col];
                 grid[row][col] = null;
             }

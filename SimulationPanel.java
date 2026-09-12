@@ -22,7 +22,7 @@ public class SimulationPanel extends JPanel {
                 if (row >= 0 && row < Sandbox.ROWS &&
                         col >= 0 && col < Sandbox.COLS) {
 
-                    sandbox.grid[row][col] = sandbox.tester.get();
+                    sandbox.grid[row][col] = sandbox.tester.get().copyForPlace();
                     repaint();
                 }
             }
