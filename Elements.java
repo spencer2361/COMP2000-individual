@@ -163,16 +163,6 @@ class Fire extends Elements {
     }
 
     @Override
-    public boolean floatsUp() {
-        return true;
-    }
-
-    @Override
-    public void step(Sandbox sandbox, int row, int col) {
-        floatUp(sandbox, row, col);
-    }
-
-    @Override
     public boolean shouldDisappear() {
         return isDead();
     }
