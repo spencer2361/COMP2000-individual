@@ -52,6 +52,15 @@ public class Sandbox {
         grid[row][col] = null;
     }
 
+ public void clearGrid() {
+    for (int row = 0; row < ROWS; row++) {
+        for (int col = 0; col < COLS; col++) {
+            grid[row][col] = null;
+        }
+    }
+}
+
+
     public void step() {
         frameCounter++;
 
